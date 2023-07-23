@@ -64,6 +64,26 @@ const moveSnake = () => {
     snake.shift() // Pega o primeiro elemento
 }
 
+const drawGrid = () => {
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#191919";
+
+    for (let i = 30; i < canvas.width; i += 30) {
+        //desenhando a linha vertical
+        ctx.beginPath();
+        ctx.lineTo(i, 0)
+        ctx.lineTo(i, 600)
+        ctx.stroke()
+        // desenhando a linha horizontal
+        ctx.beginPath();
+        ctx.lineTo(0, i)
+        ctx.lineTo(600, i)
+        ctx.stroke()
+    }
+}
+
+drawGrid()
+
 const gameLoop = () => {
     clearInterval(loopId)
     ctx.clearRect(0, 0, 600, 600);
@@ -79,7 +99,7 @@ const gameLoop = () => {
     }, 300)
 }
 
-gameLoop();
+//gameLoop();
 
 document.addEventListener("keydown", ({ key }) => {
     if (key == "ArrowRight" && direction != "left") {
