@@ -25,12 +25,12 @@ const snake = [
 
 const drawSnake = () => {
 
-    ctx.fillStyle = "#ddd"
+    ctx.fillStyle = "#008d0e"
     
     snake.forEach((position, index) => {
 
         if (index == snake.length - 1) {
-            ctx.fillStyle = "white"
+            ctx.fillStyle = "#21b902"
             roundedRect(ctx, position.x, position.y-5, size+10, size+10, size/2)
         }
 

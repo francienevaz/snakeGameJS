@@ -20,3 +20,8 @@ body {
 canvas {
     background: #111;
 }
+
+.color {
+    color: #21b902;
+    color: #008d0e;
+}
