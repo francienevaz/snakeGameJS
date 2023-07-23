@@ -17,11 +17,14 @@ function roundedRect(ctx,x,y,width,height,radius){
   }
 
 const snake = [
-    {x: 200, y: 200},
-    {x: 230, y: 200},
-    {x: 260, y: 200},
-    {x: 290, y: 200},
+    {x: 270, y: 270},
 ];
+
+const food = {
+    x: 90,
+    y: 90,
+    color: "yellow"
+}
 
 let direction, loopId
 
@@ -98,7 +101,7 @@ const gameLoop = () => {
     }, 300)
 }
 
-//gameLoop();
+gameLoop();
 
 document.addEventListener("keydown", ({ key }) => {
     if (key == "ArrowRight" && direction != "left") {
