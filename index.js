@@ -23,6 +23,8 @@ const snake = [
     {x: 290, y: 200},
 ];
 
+let direction, loopId
+
 const drawSnake = () => {
 
     ctx.fillStyle = "#008d0e"
@@ -38,4 +40,58 @@ const drawSnake = () => {
     })
 }
 
-drawSnake()
+const moveSnake = () => {
+    if (!direction) return
+
+    const head = snake[snake.length - 1] // Pega o ultimo elemento, no caso a cabeça
+
+    if (direction == "right") {
+        snake.push({x: head.x + size, y: head.y})
+    }
+
+    if (direction == "left") {
+        snake.push({x: head.x - size, y: head.y})
+    }
+
+    if (direction == "down") {
+        snake.push({x: head.x, y: head.y + size})
+    }
+
+    if (direction == "up") {
+        snake.push({x: head.x, y: head.y - size})
+    }
+
+    snake.shift() // Pega o primeiro elemento
+}
+
+const gameLoop = () => {
+    clearInterval(loopId)
+    ctx.clearRect(0, 0, 600, 600);
+
+    moveSnake()
+    drawSnake()
+
+
+    loopId = setTimeout(() => {
+        
+        gameLoop()
+        
+    }, 300)
+}
+
+gameLoop();
+
+document.addEventListener("keydown", ({ key }) => {
+    if (key == "ArrowRight" && direction != "left") {
+        direction = "right"
+    }
+    if (key == "ArrowLeft" && direction != "right") {
+        direction = "left"
+    }
+    if (key == "ArrowDown" && direction != "up") {
+        direction = "down"
+    }
+    if (key == "ArrowUp" && direction != "down") {
+        direction = "up"
+    }
+})
