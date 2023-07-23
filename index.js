@@ -87,10 +87,9 @@ drawGrid()
 const gameLoop = () => {
     clearInterval(loopId)
     ctx.clearRect(0, 0, 600, 600);
-
+    drawGrid()
     moveSnake()
     drawSnake()
-
 
     loopId = setTimeout(() => {
         
