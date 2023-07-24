@@ -28,6 +28,16 @@ const food = {
 
 let direction, loopId
 
+const  drawFood = () => {
+    const { x, y, color} = food;
+
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = color;
+    roundedRect(ctx, x, y, size, size, size/2)
+    ctx.shadowBlur = 0;
+}
+
 const drawSnake = () => {
 
     ctx.fillStyle = "#008d0e"
@@ -91,6 +101,7 @@ const gameLoop = () => {
     clearInterval(loopId)
     ctx.clearRect(0, 0, 600, 600);
     drawGrid()
+    drawFood()
     moveSnake()
     drawSnake()
 
