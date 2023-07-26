@@ -115,6 +115,26 @@ const drawGrid = () => {
 
 drawGrid()
 
+const checkEat = () => {
+    const head = snake[snake.length - 1];
+
+    if (head.x == food.x && head.y == food.y) {
+        snake.push(head)
+
+        let x = randowPosition()
+        let y = randowPosition()
+        
+        while (snake.find((position) => position.x == x && position.y == y)) {
+            x = randowPosition();
+            y = randowPosition()
+        }
+
+        food.x = x;
+        food.y = y;
+        food.color = randowColor()
+    }
+}
+
 const gameLoop = () => {
     clearInterval(loopId)
     ctx.clearRect(0, 0, 600, 600);
@@ -122,6 +142,7 @@ const gameLoop = () => {
     drawFood()
     moveSnake()
     drawSnake()
+    checkEat()
 
     loopId = setTimeout(() => {
         
