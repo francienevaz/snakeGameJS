@@ -35,13 +35,13 @@ const randowColor = () => {
     const green = randowNumber(0, 255);
     const blue = randowNumber(0, 255);
 
-    return `rbg(${red}, ${green}, ${blue})`
+    return `rgb(${red} ${green} ${blue})`;
 }
 
 const food = {
     x: randowPosition(),
     y: randowPosition(),
-    color: randowColor()
+    color: randowColor(),
 }
 
 let direction, loopId
