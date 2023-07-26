@@ -41,7 +41,7 @@ const randowColor = () => {
 const food = {
     x: randowPosition(),
     y: randowPosition(),
-    color: "yellow"
+    color: randowColor()
 }
 
 let direction, loopId
