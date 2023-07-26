@@ -30,6 +30,14 @@ const randowPosition = () => {
     return Math.round(number / 30) * 30
 }
 
+const randowColor = () => {
+    const red = randowNumber(0, 255);
+    const green = randowNumber(0, 255);
+    const blue = randowNumber(0, 255);
+
+    return `rbg(${red}, ${green}, ${blue})`
+}
+
 const food = {
     x: randowPosition(),
     y: randowPosition(),
