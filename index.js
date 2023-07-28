@@ -119,11 +119,13 @@ drawGrid()
 
 const checkEat = () => {
     const head = snake[snake.length - 1];
+    
 
     if (head.x == food.x && head.y == food.y) {
-        audio.play()
+              
         snake.push(head)
-        
+        audio.play() 
+
 
         let x = randowPosition()
         let y = randowPosition()
