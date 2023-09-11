@@ -60,13 +60,13 @@ const  drawFood = () => {
 
 const drawSnake = () => {
 
-    ctx.fillStyle = "#008d0e"
+    ctx.fillStyle = "#00c5f7"
     
     snake.forEach((position, index) => {
 
         if (index == snake.length - 1) {
-            ctx.fillStyle = "#21b902"
-            roundedRect(ctx, position.x, position.y-5, size+10, size+10, size/2)
+            ctx.fillStyle = "#00c5f7"
+            roundedRect(ctx, position.x-5, position.y-5, size+10, size+10, size/2)
         }
 
         roundedRect(ctx, position.x, position.y, size, size, size/2)
@@ -99,7 +99,7 @@ const moveSnake = () => {
 
 const drawGrid = () => {
     ctx.lineWidth = 1;
-    ctx.strokeStyle = "#191919";
+    ctx.strokeStyle = "#015670";
 
     for (let i = 30; i < canvas.width; i += 30) {
         //desenhando a linha vertical
